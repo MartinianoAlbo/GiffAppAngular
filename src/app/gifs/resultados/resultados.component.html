@@ -1,0 +1,21 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <div *ngFor="let gifs of results" class="col">
+    <div class="card shadow-sm">
+      <img [src]="gifs.images.original['url']" alt="imagen" class="bd-placeholder-img card-img-top" width="100%" height="225" focusable="false"/>
+      <div class="card-body">
+        <span class="text-dark" >{{ gifs.title? gifs.title : query | titlecase }}</span>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <button 
+              type="button" 
+              class="btn btn-sm btn-outline-secondary"
+              (click)="downloadImage(gifs.images.original['url'], gifs.title)"
+              >Download</button>
+          </div>
+          <small class="text-body-secondary">GifsApp</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
