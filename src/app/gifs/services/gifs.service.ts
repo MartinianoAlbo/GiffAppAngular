@@ -8,7 +8,7 @@ import { Data, DataImage } from '../interfaces/gifs.interface';
 export class GifsService {
   private _history:string[] = [];
   private apiKey: string = "qJ0wo4Fc6iy7wd4PxJLP4PLdL3UaiYZz";
-  private baseURL: string = `https://api.giphy.com/v1/gifs/search?=`;
+  private baseURL: string = `https://api.giphy.com/v1/gifs`;
 
   public results: Data[] = [];
 
@@ -38,7 +38,7 @@ export class GifsService {
     
     
 
-    this.http.get<DataImage>(`${this.baseURL}`, { params: params })
+    this.http.get<DataImage>(`${this.baseURL}/search`, { params } )
     .subscribe( ( resp ) =>{ 
       // console.log(resp);
       this.results = resp.data;
